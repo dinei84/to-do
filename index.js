@@ -28,7 +28,25 @@ function buscarTarefas(filtros){
 }
 
 function atualizarTarefas(id, novoStatus){
-    
+    const tarefa = tarefas.find(tarefa => tarefa.id === id)
+    if(!tarefa){
+        return "Tarefa não encontrada"
+    }else{
+        tarefa.status = novoStatus
+        return tarefa
+    }
+}
+
+function deletarTarefa(id){
+    const indice = tarefas.indexOf(id)
+
+    if(indice === -1){
+        return "Id não encontrado"
+    }else{
+        tarefas.splice(indice, 1)
+        console.log("id: " + id + " deletado")
+        return tarefas
+    }
 }
 
 
@@ -37,4 +55,8 @@ console.log(adicionarTarefas(ultimoId, 'Ler', 'ler prova de matemática', 'Baixa
 console.log(adicionarTarefas(ultimoId, 'Cozinhar', 'Cozinhar frango', 'Media', 'A fazer'))
 
 
-console.log(buscarTarefas({status: 'A fazer'}))
+// console.log(buscarTarefas({status: 'A fazer'}))
+
+// console.log(atualizarTarefas(0, 'Feito'))
+
+console.log(deletarTarefa(3,"Deletado"))
