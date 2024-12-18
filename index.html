@@ -3,17 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TO-DO List</title>
+    <title>Gerenciador de Tarefas</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>TO-DO list</h1>
+    <div class="container">
+        <h1>Gerenciador de Tarefas</h1>
 
-    <form action="add.php" method="post">
-        <input type="text" name="task" id="task" placeholder="Nova tarefa">
-        <button type="submit">Adicionar</button>
+        <div class="formularios">
+            <form id="formTarefa">
+                <h2>Adicionar Tarefa</h2>
+                <input type="text" id="titulo" placeholder="Título" required>
+                <input type="text" id="descricao" placeholder="Descrição" required>
+                
+                <select id="prioridade" required>
+                    <option value="">Selecione a Prioridade</option>
+                    <option value="Baixa">Baixa</option>
+                    <option value="Média">Média</option>
+                    <option value="Alta">Alta</option>
+                </select>
 
-    </form>
+                <select id="status" required>
+                    <option value="">Selecione o Status</option>
+                    <option value="Pendente">Pendente</option>
+                    <option value="Em Progresso">Em Progresso</option>
+                    <option value="Concluída">Concluída</option>
+                </select>
 
-    <script src="index.js"></script>
+                <button type="submit">Adicionar Tarefa</button>
+            </form>
+
+            <form id="formFiltro">
+                <h2>Filtrar Tarefas</h2>
+                <select name="prioridade">
+                    <option value="">Filtrar por Prioridade</option>
+                    <option value="Baixa">Baixa</option>
+                    <option value="Média">Média</option>
+                    <option value="Alta">Alta</option>
+                </select>
+
+                <select name="status">
+                    <option value="">Filtrar por Status</option>
+                    <option value="Pendente">Pendente</option>
+                    <option value="Em Progresso">Em Progresso</option>
+                    <option value="Concluída">Concluída</option>
+                </select>
+
+                <button type="submit">Filtrar</button>
+            </form>
+        </div>
+
+        <div class="tabela-tarefas">
+            <table id="tabelaTarefas">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Título</th>
+                        <th>Descrição</th>
+                        <th>Prioridade</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Tarefas serão renderizadas aqui -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script type="module" src="index.js"></script>
 </body>
 </html>
