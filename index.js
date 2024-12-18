@@ -40,7 +40,7 @@ function atualizarTarefas(id, novoStatus){
 function deletarTarefa(id){
     const indice = tarefas.indexOf(id)
 
-    if(indice === -1){
+    if(indice === -1 && !id){
         return "Id não encontrado"
     }else{
         tarefas.splice(indice, 1)
@@ -59,4 +59,4 @@ console.log(adicionarTarefas(ultimoId, 'Cozinhar', 'Cozinhar frango', 'Media', '
 
 // console.log(atualizarTarefas(0, 'Feito'))
 
-console.log(deletarTarefa(3,"Deletado"))
+console.log(deletarTarefa(4,"Deletado"))
